@@ -2,10 +2,14 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
+// Publieke sectie
+Route::get('/', [\App\Http\Controllers\WelcomeController::class, 'index'])->name('welcome');
+    
+
+
+
+// User login
 Route::get('/dashboard', function () {
     return view('userzone.dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -16,4 +20,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [App\Http\Controllers\Userzone\ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+
+// Authenticatie
 require __DIR__.'/auth.php';
