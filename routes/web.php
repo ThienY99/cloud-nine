@@ -5,8 +5,11 @@ use Illuminate\Support\Facades\Route;
 
 // Publieke sectie
 Route::get('/', [\App\Http\Controllers\WelcomeController::class, 'index'])->name('welcome');
-    
 
+// --Category--
+Route::get('/admin/categories/create', [\App\Http\Controllers\Admin\CategoryController::class, 'create'])->name('create');
+Route::post('/admin/categories', [\App\Http\Controllers\Admin\CategoryController::class, 'store'])->name('store');
+Route::get('/admin/categories', [\App\Http\Controllers\Admin\CategoryController::class, 'index'])->name('categories');
 
 
 // User login
