@@ -37,7 +37,7 @@ class DatabaseSeeder extends Seeder
 
         Faq::create([
         'category_id' => $food->id,
-        'question'    => 'Is all the meat you serve Halal',
+        'question'    => 'Is all the meat you serve Halal?',
         'answer'      => 'Yes! All meat we serve is sourced exclusively from suppliers that follow strict Halal guidelines. This ensures animals are ethically treated and properly slaughtered in accordance with Islamic law.',
         ]);
 
