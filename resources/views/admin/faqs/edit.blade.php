@@ -1,3 +1,4 @@
+<x-site-layout>
 <form action="/admin/faqs/{{$faq->id}}" method="post">
     @csrf
     @method('put')
@@ -10,7 +11,7 @@
 
     />
 
-        <x-form-textinput
+    <x-form-textinput
         name="answer"
         label="Antwoord"
         placeholder="Give me an answer"
@@ -18,5 +19,14 @@
 
     />
 
+    <x-form-select 
+    name="category_id" 
+    label="Categories" 
+    :options="\App\Models\Category::all()->pluck('name', 'id')->toArray()"
+    value="{{$faq->category_id}}"
+    
+    />
+
     <button type="submit">Update</button>
 </form>
+</x-site-layout>

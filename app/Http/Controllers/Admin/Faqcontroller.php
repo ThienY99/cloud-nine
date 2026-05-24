@@ -36,11 +36,16 @@ class Faqcontroller extends Controller
         $request->validate([
             'question'=>['required', 'string', 'min:10', 'max:255'],
             'answer'=>['nullable', 'string', 'min:10', 'max:500'],
+            'category_id'=>['required', 'integer', 'exists:categories,id'],
+
+
         ]);
 
         Faq::create([
             'question'=> $request->question,
             'answser'=> $request->answer,
+            'category_id'=>['required', 'integer', 'exists:categories,id'],
+
         ]);
 
         return redirect()->route('admin.faqs.index');
@@ -64,11 +69,15 @@ class Faqcontroller extends Controller
         $request->validate([
             'question'=>['required', 'string', 'min:10', 'max:255'],
             'answer'=>['nullable', 'string', 'min:10', 'max:500'],    
+            'category_id'=>['required', 'integer', 'exists:categories,id'],
+
         ]);
         
         $faq->update([
             'question'=> $request->question,
             'answser'=> $request->answer,
+            'category_id'=> $request->category_id,
+
         ]);
 
         return redirect()->route('admin.faqs.index');
