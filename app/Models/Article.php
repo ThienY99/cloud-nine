@@ -10,6 +10,12 @@ class Article extends Model
     /** @use HasFactory<\Database\Factories\ArticleFactory> */
     use HasFactory;
 
+    protected $fillable = ['title', 'content', 'image', 'published_at'];
+
+    protected $casts = [
+        'published_at' => 'datetime',
+    ];
+
     // Model relations -----------------------------------------------
     function category()
     {
@@ -20,4 +26,5 @@ class Article extends Model
     {
         return $this->belongsTo(User::class, 'author_id', 'id');
     }
+    
 }
