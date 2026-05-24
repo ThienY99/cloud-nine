@@ -1,10 +1,13 @@
 <form action="/admin/categories" method="post">
     @csrf
 
-    <label for="name">Category name</lable>
-        
-    <input type="text" name="name" placeholder="type" value="{{ old('name') }}">
-    @error('name') <div style="color: red"> {{$message }}</div>@enderror
+
+    <x-form-textinput
+        name="name"
+        label="Category name"
+        placeholder="category name"
+    />
+
 
     <button type="submit">Create</button>
 
