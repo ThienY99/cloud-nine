@@ -18,7 +18,9 @@ Route::get('/faqs', [\App\Http\Controllers\FaqController::class, 'index'])->name
 Route::prefix('admin')->middleware('auth', \App\Http\Middleware\IsAdmin::class)->name('admin.')->group(function () {
     Route::resource('categories', \App\Http\Controllers\Admin\CategoryController::class)->except(['show']);
     Route::resource('faqs', \App\Http\Controllers\Admin\FaqController::class)->except(['show']);
+    Route::resource('products', \App\Http\Controllers\Admin\ProductController::class)->except(['show']);
 
+    
 
 });
 
