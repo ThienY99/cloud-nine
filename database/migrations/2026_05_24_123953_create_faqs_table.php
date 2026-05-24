@@ -14,9 +14,10 @@ return new class extends Migration
         Schema::create('faqs', function (Blueprint $table) {
             $table->id();
 
+            $table->foreignId('category_id')->constrained()->onDelete('cascade');
             $table->string('question');
             $table->string('answer')->nullable();
-
+            
             $table->timestamps();
         });
     }
