@@ -1,0 +1,16 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Models\Faq;
+
+class FaqController extends Controller
+{
+    $faqs = Faq::orderBy('question')->get();
+
+    return view('faqs.index', [
+            'faqs' => $faqs,
+    ]);
+    
+}

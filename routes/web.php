@@ -9,7 +9,6 @@ Route::get('/', [\App\Http\Controllers\WelcomeController::class, 'index'])->name
 // --Category--
 Route::get('/categories', [\App\Http\Controllers\CategoryController::class, 'index'])->name('categories.index');
 Route::get('/categories/{category}', [\App\Http\Controllers\CategoryController::class, 'show'])->name('categories.show');
-
 // --Admin.Category--
 Route::prefix('admin')->name('admin.')->group(function(){ //groepje gemaakt(admin)
     Route::get('/categories/create', [\App\Http\Controllers\Admin\CategoryController::class, 'create'])->name('categories.create');
@@ -20,6 +19,9 @@ Route::prefix('admin')->name('admin.')->group(function(){ //groepje gemaakt(admi
     Route::delete('/categories/{category}', [\App\Http\Controllers\Admin\CategoryController::class, 'destroy'])->name('categories.delete');
 
 });
+
+// --Faqs--
+Route::get('/faqs', [\App\Http\Controllers\FaqController::class, 'index'])->name('faqs.index');
 
 
 // User login
