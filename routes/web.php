@@ -20,13 +20,16 @@ Route::get('/menu', [\App\Http\Controllers\ProductController::class, 'index'])->
 Route::get('/articles', [\App\Http\Controllers\ArticleController::class, 'index'])->name('articles.index');
 Route::get('/articles/{article}', [\App\Http\Controllers\ArticleController::class, 'show'])->name('articles.show');
 
+// --Mail--
+Route::get('/contact', [\App\Http\Controllers\ContactController::class, 'create'])->name('contact.create');
+Route::post('/contact', [\App\Http\Controllers\ContactController::class, 'store'])->name('contact.store');
+
 // Admin pages
 Route::prefix('admin')->middleware('auth', \App\Http\Middleware\IsAdmin::class)->name('admin.')->group(function () {
     Route::resource('categories', \App\Http\Controllers\Admin\CategoryController::class)->except(['show']);
     Route::resource('faqs', \App\Http\Controllers\Admin\FaqController::class)->except(['show']);
     Route::resource('products', \App\Http\Controllers\Admin\ProductController::class)->except(['show']);
     Route::resource('articles', \App\Http\Controllers\Admin\ArticleController::class)->except(['show']);
-
     
 
 });
