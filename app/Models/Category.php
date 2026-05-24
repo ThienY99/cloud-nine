@@ -14,8 +14,13 @@ class Category extends Model
 
     protected $fillable = ['name'];
 
-    function article()
+        public function articles()
     {
-        return $this->hasMany(Article::class);
+        return $this->hasMany(Article::class, 'category_id', 'id');
+    }
+
+    public function faqs()
+    {
+        return $this->hasMany(Faq::class, 'category_id', 'id');
     }
 }
