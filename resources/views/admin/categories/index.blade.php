@@ -2,6 +2,11 @@
 <ul>
 @foreach($categories as $category)
     <li>{{ $category->name}}</li>
+    <li>
+        {{ $category->name }}
+        -
+        <a href="/admin/categories/{{ $category->id }}/edit">edit</a>
+    </li>
 
 @endforeach
 </ul>
