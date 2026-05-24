@@ -1,6 +1,6 @@
 <x-site-layout>
 
-    <h1>Categorieën</h1>
+    <h1>Categories</h1>
 
     <ul>
         @foreach ($categories as $category)
