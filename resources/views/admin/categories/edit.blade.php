@@ -1,4 +1,5 @@
-<form action="/admin/categories/{{$category->id}}" method="post">
+<x-site-layout>
+<form action="/admin/categories/{{$category->id}}" method="post" enctype="multipart/form-data" class="bg-white p-4">
     @csrf
     @method('put')
 
@@ -9,5 +10,12 @@
     value="{{ $category->name }}"
     />
 
-    <button type="submit">Update</button>
+    <x-form-file-upload 
+    name="picture" 
+    label="Category picture"
+    />
+
+
+    <button type="submit" class="bg-black p-2 text-white">Update</button>
 </form>
+</x-site-layout>

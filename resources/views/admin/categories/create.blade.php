@@ -1,3 +1,4 @@
+<x-site-layout>
 <form action="/admin/categories" method="post">
     @csrf
 
@@ -12,3 +13,4 @@
     <button type="submit">Create</button>
 
 </form>
+</x-site-layout>
