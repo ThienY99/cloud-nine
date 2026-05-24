@@ -2,13 +2,13 @@
 
 namespace Database\Factories;
 
-use App\Models\Faq;
+use App\Models\Product;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends Factory<Faq>
+ * @extends Factory<Product>
  */
-class FaqFactory extends Factory
+class ProductFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,9 +18,7 @@ class FaqFactory extends Factory
     public function definition(): array
     {
         return [
-            'question'=> $this->faker->sentence(),
-            'answer'=> $this->faker->paragraphs(3,true),
-            'category_id'=> $this->faker->numberBetween(1,4),
+            //
         ];
     }
 }
