@@ -7,10 +7,13 @@ use App\Models\Faq;
 
 class FaqController extends Controller
 {
-    $faqs = Faq::orderBy('question')->get();
+    public function index()
+    {
+        $faqs = Faq::orderBy('question')->get();
 
-    return view('faqs.index', [
+        return view('faqs.index', [
             'faqs' => $faqs,
-    ]);
-    
+        ]);
+    }
+
 }
